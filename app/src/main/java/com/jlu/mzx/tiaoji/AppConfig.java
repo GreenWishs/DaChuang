@@ -7,4 +7,5 @@ public class AppConfig {
     public static final String SERVERADD = "http://115.159.213.212";
     public static final String LOGIN = "/login";
     public static final String REGISTER = "/register";
+    public static final String SEARCH = "/searchvolunteer";
 }
