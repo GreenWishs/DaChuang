@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">调剂</string>
+    <string name="xiaoxi">消息</string>
+    <string name="zhiyuan">志愿</string>
+    <string name="me">我</string>
+    <string name="zhanghao">账号</string>
+    <string name="passwd">密码</string>
+    <string-array name="place">
+        <item>老师</item>
+        <item>学校</item>
+        <item>地区</item>
+        <item>专业</item>
+    </string-array>
+</resources>
