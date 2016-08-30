@@ -23,7 +23,6 @@
             android:name=".Aty.conversation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize">
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -35,6 +34,7 @@
                     android:scheme="rong" />
             </intent-filter>
         </activity>
+        <activity android:name=".Aty.VolunteerInfo"></activity>
     </application>
 
 </manifest>

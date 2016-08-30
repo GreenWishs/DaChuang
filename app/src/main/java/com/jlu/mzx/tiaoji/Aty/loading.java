@@ -27,7 +27,7 @@ public class loading extends AppCompatActivity {
         Boolean isdenglu = sp.getBoolean("isdenglu", false);
         String rongtoken = sp.getString("rongtoken", null);
 
-        if (isdenglu == true) {//APP处于登录状态
+        if ( isdenglu==true) {//APP处于登录状态
 
 
             Intent intent = new Intent(this, MainActivity.class);

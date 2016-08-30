@@ -5,6 +5,7 @@
     <string name="me">我</string>
     <string name="zhanghao">账号</string>
     <string name="passwd">密码</string>
+    <string name="setting">设置</string>
     <string-array name="place">
         <item>老师</item>
         <item>学校</item>

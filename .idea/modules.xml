@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/DaChuang.iml" filepath="$PROJECT_DIR$/DaChuang.iml" />
       <module fileurl="file://$PROJECT_DIR$/Rong_Cloud_Android_IMKit_SDK_v2_6_7_stable/Rong_Cloud_Android_IMKit_SDK_v2_6_7_stable.iml" filepath="$PROJECT_DIR$/Rong_Cloud_Android_IMKit_SDK_v2_6_7_stable/Rong_Cloud_Android_IMKit_SDK_v2_6_7_stable.iml" />
       <module fileurl="file://$PROJECT_DIR$/Tiaoji-master.iml" filepath="$PROJECT_DIR$/Tiaoji-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />

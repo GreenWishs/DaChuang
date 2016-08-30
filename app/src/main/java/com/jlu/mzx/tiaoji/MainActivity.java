@@ -1,8 +1,8 @@
 package com.jlu.mzx.tiaoji;
 
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +10,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.jlu.mzx.tiaoji.Adapter.MyFragmentAdapter;
-import com.jlu.mzx.tiaoji.Frag.MeFragment;
+import com.jlu.mzx.tiaoji.Frag.me_student_fragment;
+import com.jlu.mzx.tiaoji.Frag.me_teacher_fragment;
 import com.jlu.mzx.tiaoji.Frag.ZhiyuanFragment;
 
 import java.util.ArrayList;
@@ -48,7 +49,18 @@ public class MainActivity extends AppCompatActivity {
 
         ls = new ArrayList<>();
         mConverstationlist = initConverstationlist();
-        meFragment = new MeFragment();
+
+        /**
+         * 进行用户身份判断 学生和老师加载不同的fragment 实现不同用户显示不同的界面
+         */
+        //TODO me_teacher_fragment 实现
+        SharedPreferences sp = getSharedPreferences("app", MODE_PRIVATE);
+        String usersidentity = sp.getString("identity", "student");
+        if (usersidentity.equals("student")) {
+            meFragment = new me_student_fragment();
+        } else {
+            meFragment = new me_teacher_fragment();
+        }
         zhiyuanFragment = new ZhiyuanFragment();
 
         ls.add(mConverstationlist);

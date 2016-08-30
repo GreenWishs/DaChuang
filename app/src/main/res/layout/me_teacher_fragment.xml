@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:background="#ffffff"
         android:id="@+id/user"
         android:layout_width="match_parent"
         android:layout_height="100dp">
@@ -43,7 +44,7 @@
         android:layout_below="@+id/user"
         android:layout_marginTop="15dp"
         android:drawableRight="@drawable/eou"
-        android:text="发出的请求" />
+        android:text="发布的志愿" />
 
     <TextView
         android:id="@+id/rule1"
@@ -61,9 +62,23 @@
         android:text="收到的消息" />
 
     <TextView
+        android:id="@+id/rule2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/recivednews"
+        android:background="#C4C4C4" />
+
+    <TextView
+        android:id="@+id/newvolunteer"
         style="@style/me_info"
         android:layout_width="match_parent"
-        android:layout_below="@id/recivednews"
+        android:layout_below="@id/rule2"
+        android:text="新建志愿" />
+
+    <TextView
+        style="@style/me_info"
+        android:layout_width="match_parent"
+        android:layout_below="@id/newvolunteer"
         android:layout_marginTop="50dp"
         android:text="@string/setting" />
 

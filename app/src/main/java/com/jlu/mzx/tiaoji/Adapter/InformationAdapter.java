@@ -49,7 +49,7 @@ public class InformationAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         view = mInflater.inflate(R.layout.searchresult, null);
         TextView textView1, textView2;
-        textView2 = (TextView) view.findViewById(R.id.information);
+        textView2 = (TextView) view.findViewById(R.id.name);
         textView1 = (TextView) view.findViewById(R.id.teacher);
         textView1.setText(datas.get(i).getSchool());
         textView2.setText(datas.get(i).getTeacher());
