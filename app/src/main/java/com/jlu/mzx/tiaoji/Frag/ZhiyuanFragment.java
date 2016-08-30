@@ -1,6 +1,7 @@
 package com.jlu.mzx.tiaoji.Frag;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -27,6 +29,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.JsonRequest;
 import com.jlu.mzx.tiaoji.Adapter.InformationAdapter;
 import com.jlu.mzx.tiaoji.AppConfig;
+import com.jlu.mzx.tiaoji.Aty.VolunteerInfo;
 import com.jlu.mzx.tiaoji.MyApplication;
 import com.jlu.mzx.tiaoji.R;
 import com.jlu.mzx.tiaoji.tools.Volunteer;
@@ -59,13 +62,21 @@ public class ZhiyuanFragment extends Fragment implements TextView.OnEditorAction
         /**
          * 初始化view
          */
-        datas = new ArrayList<Volunteer>();
+        datas = new ArrayList<>();
         spinner = (Spinner) view.findViewById(R.id.type);
         editText = (EditText) view.findViewById(R.id.searchEdit);
         listview = (ListView) view.findViewById(R.id.list);
 
         inforadapter = new InformationAdapter(getContext(), datas);
         listview.setAdapter(inforadapter);
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getContext(), VolunteerInfo.class);
+                intent.putExtra("info", datas.get(i));
+                startActivity(intent);
+            }
+        });
 
         /**
          * 设置键盘事件监听 进行搜索
@@ -112,13 +123,24 @@ public class ZhiyuanFragment extends Fragment implements TextView.OnEditorAction
                         JSONArray result = response.getJSONArray("volunteer");
                         for (int i = 0; i < result.length(); i++) {
                             JSONObject item = result.optJSONObject(i);
-                            datas.add(new Volunteer(item.get("teacher").toString(), item.get("school").toString()));
+                            Volunteer tmp = new Volunteer();
+                            tmp.setAmount(item.get("amount").toString());
+                            tmp.setArea(item.get("area").toString());
+                            tmp.setCollege(item.get("college").toString());
+                            tmp.setRemark(item.get("remark").toString());
+                            tmp.setSchool(item.get("school").toString());
+                            tmp.setTeacher(item.get("teacher").toString());
+                            tmp.setSubject(item.get("subject").toString());
+                            tmp.setSpecialty(item.get("specialty").toString());
+                            Log.e("tmp",tmp.toString());
+                            datas.add(tmp);
+
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
 
-
+                    Log.e("datas",datas.toString());
                     inforadapter.notifyDataSetChanged();
 
                 }

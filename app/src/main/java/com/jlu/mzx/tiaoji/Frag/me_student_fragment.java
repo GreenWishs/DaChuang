@@ -18,7 +18,7 @@ import com.jlu.mzx.tiaoji.R;
 /**
  * Created by mzx on 2016/7/15.
  */
-public class MeFragment extends Fragment {
+public class me_student_fragment extends Fragment {
     private Button outlogin;
     private View view = null;
 
@@ -27,7 +27,7 @@ public class MeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Log.e("onCreateView", "onCreateView");
         if (view == null) {
-            view = inflater.inflate(R.layout.me_fragment, container, false);
+            view = inflater.inflate(R.layout.me_teacher_fragment, container, false);
             outlogin = (Button) view.findViewById(R.id.button);
             outlogin.setOnClickListener(new View.OnClickListener() {
                 @Override
