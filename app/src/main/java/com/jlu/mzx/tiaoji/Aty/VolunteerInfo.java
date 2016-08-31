@@ -58,27 +58,27 @@ public class VolunteerInfo extends Activity {
             TextView rc_left = (TextView) view.findViewById(R.id.rc_left);
             TextView rc_right = (TextView) view.findViewById(R.id.rc_right);
             switch (i) {
-                case 1:
+                case 0:
                     rc_left.setText("地区");
                     rc_right.setText(volunteer.getArea());
                     break;
-                case 2:
+                case 1:
                     rc_left.setText("院校");
                     rc_right.setText(volunteer.getCollege());
                     break;
-                case 3:
+                case 2:
                     rc_left.setText("所属科目");
                     rc_right.setText(volunteer.getSpecialty());
                     break;
-                case 4:
+                case 3:
                     rc_left.setText("老师");
                     rc_right.setText(volunteer.getTeacher());
                     break;
-                case 5:
+                case 4:
                     rc_left.setText("名额");
                     rc_right.setText(volunteer.getAmount());
                     break;
-                case 6:
+                case 5:
                     rc_left.setText("备注");
                     rc_right.setText(volunteer.getRemark());
                     break;

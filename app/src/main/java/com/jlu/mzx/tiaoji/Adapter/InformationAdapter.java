@@ -48,11 +48,13 @@ public class InformationAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         view = mInflater.inflate(R.layout.searchresult, null);
-        TextView textView1, textView2;
-        textView2 = (TextView) view.findViewById(R.id.name);
+        TextView textView1, textView2,textView3;
         textView1 = (TextView) view.findViewById(R.id.teacher);
-        textView1.setText(datas.get(i).getSchool());
-        textView2.setText(datas.get(i).getTeacher());
+        textView2 = (TextView) view.findViewById(R.id.name);
+        textView3 = (TextView)view.findViewById(R.id.school);
+        textView1.setText(datas.get(i).getTeacher());
+        textView2.setText(datas.get(i).getSpecialty());
+        textView3.setText(datas.get(i).getSchool());
         return view;
     }
 }
