@@ -78,7 +78,11 @@ public class VolunteerInfo extends Activity {
                     rc_left.setText("名额");
                     rc_right.setText(volunteer.getAmount());
                     break;
+<<<<<<< Updated upstream
                 case 5:
+=======
+                case 6 :
+>>>>>>> Stashed changes
                     rc_left.setText("备注");
                     rc_right.setText(volunteer.getRemark());
                     break;
