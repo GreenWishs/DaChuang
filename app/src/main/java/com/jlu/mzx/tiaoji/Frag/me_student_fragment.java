@@ -26,8 +26,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.JsonRequest;
 import com.jlu.mzx.tiaoji.AppConfig;
-import com.jlu.mzx.tiaoji.Aty.Choosezhiyuan;
 import com.jlu.mzx.tiaoji.Aty.LoginActivity;
+import com.jlu.mzx.tiaoji.Aty.StatusofMyapply;
 import com.jlu.mzx.tiaoji.MyApplication;
 import com.jlu.mzx.tiaoji.R;
 
@@ -58,33 +58,8 @@ public class me_student_fragment extends Fragment {
 
                 @Override
                 public void onClick(View view) {
-                    JsonRequest jsonRequest = new JsonObjectRequest(com.android.volley.Request.Method.POST, AppConfig.SERVERADD + AppConfig.LOGIN, jsonObject, new Response.Listener<JSONObject>() {
-
-                        @Override
-                        public void onResponse(JSONObject response) {
-                            try {
-                                JSONArray jsonArray = response.getJSONArray("school_choose");
-                                int m = jsonArray.length();
-                                school_choose = new String[m];
-                                for (int i = 0; i < m; i++){
-                                    school_choose[i] = jsonArray.optJSONObject(i).toString();
-                                }
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }, new Response.ErrorListener() {
-
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(getContext(),"无法连接服务器",Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                    MyApplication.getmRequestQueue().add(jsonRequest);
-                    intent = new Intent(getContext(), Choosezhiyuan.class);
-                    intent.putExtra("school_choose",school_choose);
+                    intent = new Intent(getContext(), StatusofMyapply.class);
                     startActivity(intent);
-                    getActivity().finish();
                 }
             });
 
