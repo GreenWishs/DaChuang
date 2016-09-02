@@ -34,7 +34,9 @@
                     android:scheme="rong" />
             </intent-filter>
         </activity>
-        <activity android:name=".Aty.VolunteerInfo"></activity>
+        <activity android:name=".Aty.VolunteerInfo" />
+        <activity android:name=".Aty.SearchVolunteer" />
+        <activity android:name=".Adapter.Main2Activity"></activity>
     </application>
 
 </manifest>
