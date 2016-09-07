@@ -61,6 +61,7 @@
         android:text="收到的消息" />
 
     <TextView
+        android:id="@+id/setting"
         style="@style/me_info"
         android:layout_width="match_parent"
         android:layout_below="@id/recivednews"
