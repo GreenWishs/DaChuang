@@ -36,7 +36,8 @@
         </activity>
         <activity android:name=".Aty.VolunteerInfo" />
         <activity android:name=".Aty.SearchVolunteer" />
-        <activity android:name=".Adapter.Main2Activity"></activity>
+        <activity android:name=".Aty.SetStudentPersonalInformation" />
+        <activity android:name=".Aty.StatusofMyapply" />
     </application>
 
 </manifest>

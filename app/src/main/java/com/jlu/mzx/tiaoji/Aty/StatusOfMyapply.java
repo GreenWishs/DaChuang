@@ -1,7 +1,6 @@
 package com.jlu.mzx.tiaoji.Aty;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ListView;
@@ -28,59 +27,120 @@ import java.util.List;
  * Created by caosong on 2016/9/1.
  */
 public class StatusofMyapply extends AppCompatActivity {
-    StatusofMyapplyAdapter statusofMyapplyAdapter;
-    int state;
     ListView listview;
     private List<Volunteer> datas;
+    private StatusofMyapplyAdapter adapter;
+    int num;
 
-/**
-学生向老师发出的申请状态
-*/
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.status_of_myapply_activity);
         datas = new ArrayList<>();
         listview = (ListView) findViewById(R.id.list);
-        //TODO status 需要更改
-        state = 0;
-        statusofMyapplyAdapter = new StatusofMyapplyAdapter(this, datas, state);
-        listview.setAdapter(statusofMyapplyAdapter);
+
+        adapter = new StatusofMyapplyAdapter(this, datas);
+        listview.setAdapter(adapter);
+
+        querystatus();
+
+
+    }
+
+    private void querystatus() {
         JSONObject jsonObject = new JSONObject();
-        //TODO 向..服务器..请求学生申请老师的进度，以及老师的基本信息
         try {
-            jsonObject.put("type","teacher");
-            jsonObject.put("content","王健");
+            jsonObject.put("type", "1");
+            jsonObject.put("content", AppConfig.USERNAME);
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        JsonRequest<JSONObject> request = new JsonObjectRequest(Request.Method.POST,
+                AppConfig.SERVERADD + "/searchvolunteerrequest",
+                jsonObject,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.e("request", response.toString());
+                        try {
+                            JSONArray request = response.getJSONArray("request");
+                            for (int i = 0; i < request.length(); i++) {
+                                Volunteer vol = new Volunteer();
+                                JSONObject tmp = request.optJSONObject(i);
+                                vol.setId(tmp.getInt("volunteerid"));
+                                vol.setRequeststatus(tmp.getInt("requeststatus"));
+                                datas.add(vol);
+                                Log.e("datasize", "" + datas.size());
 
-        JsonRequest<JSONObject> request = new JsonObjectRequest(Request.Method.POST, AppConfig.SERVERADD + "/searchvolunteer", jsonObject, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    JSONArray json = response.getJSONArray("volunteer");
-
-                    for (int i = 0 ; i < json.length() ; i++ ){
-                        Volunteer vol = new Volunteer();
-                        JSONObject tmp = json.optJSONObject(i);
-                        vol.setTeacher(tmp.get("teacher").toString());
-                        vol.setSchool(tmp.get("school").toString());
-                        vol.setSpecialty(tmp.get("specialty").toString());
-                        datas.add(vol);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        queryvolunteer();
                     }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                statusofMyapplyAdapter.notifyDataSetChanged();
-
-            }
-        }, new Response.ErrorListener() {
+                }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
 
             }
         });
         MyApplication.getmRequestQueue().add(request);
+
+    }
+
+    private void queryvolunteer() {
+        JSONObject volpost = new JSONObject();
+        Log.e("datasize", "" + datas.size());
+
+        for (num = 0; num < datas.size();num++ ) {
+            Log.e("datanum", "" + num);
+            try {
+                volpost.put("type", 5);
+                volpost.put("content", datas.get(num).getId());
+
+                Log.e("datanum", "" + num);
+                JsonObjectRequest volunteerrequest = new JsonObjectRequest(Request.Method.POST,
+                        AppConfig.SERVERADD + "/searchvolunteer", volpost,
+                        new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                JSONArray json = null;
+                                Log.e("request", response.toString());
+                                try {
+                                    json = response.getJSONArray("volunteer");
+                                    Log.e("volunteer", json.toString());
+                                    JSONObject tmp = json.optJSONObject(0);
+                                    Log.e("datanum", "" + num);
+                                    for (Volunteer i : datas) {
+                                        if (i.getId()==tmp.getInt("volunteer"))
+                                        datas.get(num).setTeacher(tmp.get("teacher").toString());
+                                        datas.get(num).setSchool(tmp.get("school").toString());
+                                        datas.get(num).setSpecialty(tmp.get("specialty").toString());
+                                        datas.get(num).setRequeststatus(tmp.getInt("requeststatus"));
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+
+                            }
+                        });
+                volunteerrequest.setTag(num);
+                MyApplication.getmRequestQueue().add(volunteerrequest);
+                adapter.notifyDataSetChanged();
+
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+
     }
 }

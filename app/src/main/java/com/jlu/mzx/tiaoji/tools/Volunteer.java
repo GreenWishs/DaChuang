@@ -6,6 +6,16 @@ import java.io.Serializable;
  * Created by gyl on 2016/8/18.
  */
 public class Volunteer implements Serializable {
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     private String teacher;
     private String school;
     private String area;
@@ -14,8 +24,18 @@ public class Volunteer implements Serializable {
     private String amount;
     private String specialty;
     private String remark;
+    private int requeststatus;
+
+    public int getRequeststatus() {
+        return requeststatus;
+    }
+
+    public void setRequeststatus(int requeststatus) {
+        this.requeststatus = requeststatus;
+    }
 
     public Volunteer(String teacher, String school) {
+
         this.teacher = teacher;
         this.school = school;
     }

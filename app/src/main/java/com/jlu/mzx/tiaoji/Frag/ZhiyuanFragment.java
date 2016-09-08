@@ -100,13 +100,13 @@ public class ZhiyuanFragment extends Fragment implements TextView.OnEditorAction
                 String content = null;
                 jsonObject.put("token", token);
                 if (spinner.getSelectedItem().equals("学校"))
-                    content = "school";
+                    content = "6";
                 if (spinner.getSelectedItem().equals("老师"))
-                    content = "teacher";
+                    content = "4";
                 if (spinner.getSelectedItem().equals("专业"))
-                    content = "specialty";
+                    content = "2";
                 if (spinner.getSelectedItem().equals("地区"))
-                    content = "area";
+                    content = "3";
                 jsonObject.put("type", content);
                 jsonObject.put("content", editText.getText().toString());
 

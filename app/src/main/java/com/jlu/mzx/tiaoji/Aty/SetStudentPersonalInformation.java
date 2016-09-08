@@ -32,12 +32,11 @@ import org.json.JSONObject;
 public class SetStudentPersonalInformation extends AppCompatActivity {
     String username;
     EditText editText1,editText2,editText3,editText4,editText5,editText6,editText7,editText8,editText9;//学生具体信息
-    private JSONObject data,data1;//请求修改用户数据，请求得到用户数据
     private TextView textView1;//确认
     private Intent intent;
     private TextView textView2;//取消
 
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.set_personal_information);
         SharedPreferences sp = getSharedPreferences("app", MODE_PRIVATE);
@@ -55,12 +54,13 @@ public class SetStudentPersonalInformation extends AppCompatActivity {
         editText9 = (EditText)findViewById(R.id.introduct);
         intent = new Intent(this, MainActivity.class);
 
+            JSONObject postdata=new JSONObject();
         try {
-            data1.put("username",username);
+            postdata.put("username",username);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-       JsonRequest<JSONObject> request1 = new JsonObjectRequest(Request.Method.POST, AppConfig.SERVERADD+"/searchuserinfo",data1,new Response.Listener<JSONObject>(){
+       JsonRequest<JSONObject> request1 = new JsonObjectRequest(Request.Method.POST, AppConfig.SERVERADD+"/searchuserinfo",postdata,new Response.Listener<JSONObject>(){
 
             @Override
             public void onResponse(JSONObject response) {
@@ -80,7 +80,7 @@ public class SetStudentPersonalInformation extends AppCompatActivity {
                 }
 
             }
-        }, new Response.ErrorListener() {
+        },  new Response.ErrorListener() {
 
             @Override
             public void onErrorResponse(VolleyError error) {
@@ -95,6 +95,7 @@ public class SetStudentPersonalInformation extends AppCompatActivity {
         textView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                JSONObject data=new JSONObject();
                 try {
                     data.put("username",username);
                     data.put("realname",editText1.getText().toString());
