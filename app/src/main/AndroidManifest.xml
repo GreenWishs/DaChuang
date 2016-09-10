@@ -9,35 +9,34 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Aty.loading">
+        <activity android:name=".activity.loading">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Aty.LoginActivity" />
-        <activity android:name=".Aty.Register" />
+        <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".activity.Register" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".activity.StatusofMyapply" />
+        <activity android:name=".activity.SetStudentPersonalInformation" />
         <activity
-            android:name=".Aty.conversation"
+            android:name=".activity.conversation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data
                     android:host="com.jlu.mzx.tiaoji"
                     android:pathPrefix="/conversation/"
                     android:scheme="rong" />
             </intent-filter>
         </activity>
-        <activity android:name=".Aty.VolunteerInfo" />
-        <activity android:name=".Aty.SearchVolunteer" />
-        <activity android:name=".Aty.SetStudentPersonalInformation" />
-        <activity android:name=".Aty.StatusofMyapply" />
+        <activity android:name=".activity.VolunteerInfo" />
+        <activity android:name=".activity.LookStudentPersonalInformation" />
+        <activity android:name=".activity.SearchVolunteer" />
     </application>
 
 </manifest>

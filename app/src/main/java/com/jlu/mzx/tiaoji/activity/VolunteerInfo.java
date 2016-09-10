@@ -1,4 +1,4 @@
-package com.jlu.mzx.tiaoji.Aty;
+package com.jlu.mzx.tiaoji.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,15 +8,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.jlu.mzx.tiaoji.R;
 import com.jlu.mzx.tiaoji.tools.Volunteer;
 
+import io.rong.imkit.RongIM;
+
 public class VolunteerInfo extends Activity {
     private ListView listView;
     private Volunteer volunteer;
+    private Button startcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +32,15 @@ public class VolunteerInfo extends Activity {
         Intent intent = getIntent();
         volunteer = (Volunteer) intent.getSerializableExtra("info");
         listView.setAdapter(new VolunteerInfoListAdapter(volunteer));
+        startcon = (Button) findViewById(R.id.startconversation);
+        startcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO 这个地方开启回话有问题，应查询到老师的id之后进行对话
+                if (RongIM.getInstance() != null)
+                    RongIM.getInstance().startPrivateChat(VolunteerInfo.this, "123", "title");
+            }
+        });
     }
 
     class VolunteerInfoListAdapter extends BaseAdapter {

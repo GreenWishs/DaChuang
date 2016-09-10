@@ -1,7 +1,6 @@
 package com.jlu.mzx.tiaoji.Adapter;
 
 import android.content.Context;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,21 +10,14 @@ import android.widget.TextView;
 import com.jlu.mzx.tiaoji.R;
 import com.jlu.mzx.tiaoji.tools.Volunteer;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.List;
 
-/**
- * Created by caosong on 2016/8/18.
- */
-public class InformationAdapter extends BaseAdapter {
-    private JSONObject jsonObject;
-    private LayoutInflater mInflater;// 动态布局映射
-    private List<Volunteer> datas;
 
-    public InformationAdapter(Context context, List<Volunteer> datas) {
+public class VolunteerInformationAdapter extends BaseAdapter {
+    private final LayoutInflater mInflater;// 动态布局映射
+    private  List<Volunteer> datas;
+
+    public VolunteerInformationAdapter(Context context, List<Volunteer> datas) {
         this.mInflater = LayoutInflater.from(context);
         this.datas = datas;
     }
@@ -48,10 +40,10 @@ public class InformationAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         view = mInflater.inflate(R.layout.searchresult, null);
-        TextView textView1, textView2,textView3;
+        TextView textView1, textView2, textView3;
         textView1 = (TextView) view.findViewById(R.id.teacher);
         textView2 = (TextView) view.findViewById(R.id.name);
-        textView3 = (TextView)view.findViewById(R.id.school);
+        textView3 = (TextView) view.findViewById(R.id.school);
         textView1.setText(datas.get(i).getTeacher());
         textView2.setText(datas.get(i).getSpecialty());
         textView3.setText(datas.get(i).getSchool());

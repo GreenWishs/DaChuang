@@ -6,6 +6,18 @@
     <string name="zhanghao">账号</string>
     <string name="passwd">密码</string>
     <string name="setting">设置</string>
+    <string name="xingming">姓名</string>
+    <string name="sex">性别</string>
+    <string name="age">年龄</string>
+    <string name="school">学校</string>
+    <string name="nation">民族</string>
+    <string name="specialty">专业</string>
+    <string name="phonenumber">电话号</string>
+    <string name="idcardnumber">身份证号</string>
+    <string name="personalintroduction">个人简介</string>
+    <string name="modify">修改</string>
+    <string name="schoolbadge">schoolbadge</string>
+    <string name="specialtyname">专业名</string>
     <string-array name="place">
         <item>老师</item>
         <item>学校</item>

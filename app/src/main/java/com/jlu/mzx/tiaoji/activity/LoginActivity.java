@@ -1,4 +1,4 @@
-package com.jlu.mzx.tiaoji.Aty;
+package com.jlu.mzx.tiaoji.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -76,8 +76,13 @@ public class LoginActivity extends Activity {
         if (username != null && passwd != null) {
             Toast.makeText(LoginActivity.this, "" + username + passwd, Toast.LENGTH_SHORT).show();
             try {
-                json.put("username", username.toString());
-                json.put("password", passwd.toString());
+                SharedPreferences sp = getSharedPreferences("app", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putString("username",username);
+                editor.putString("passwd",passwd);
+                editor.apply();
+                json.put("username", username);
+                json.put("password", passwd);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -85,6 +90,16 @@ public class LoginActivity extends Activity {
                     AppConfig.SERVERADD + AppConfig.LOGIN, json, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
+                    try {
+                        int identity = response.getInt("identity");
+                        SharedPreferences sp = getSharedPreferences("app", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.putString("token",response.getString("token"));
+                        editor.putInt("identity",identity);
+                        editor.apply();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                     decide(response);
 
                 }
@@ -151,7 +166,7 @@ public class LoginActivity extends Activity {
                 editor.putBoolean("isdenglu", true);
                 editor.putString("rongtoken", rongtoken);
                 editor.putString("token", token);
-                editor.commit();
+                editor.apply();
                 LoginActivity.this.finish();
 
             }

@@ -9,27 +9,28 @@ import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
-import android.widget.BaseAdapter;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.JsonRequest;
-import com.jlu.mzx.tiaoji.Adapter.InformationAdapter;
+import com.jlu.mzx.tiaoji.Adapter.VolunteerInformationAdapter;
 import com.jlu.mzx.tiaoji.AppConfig;
-import com.jlu.mzx.tiaoji.Aty.VolunteerInfo;
+import com.jlu.mzx.tiaoji.activity.SearchVolunteer;
+import com.jlu.mzx.tiaoji.activity.VolunteerInfo;
 import com.jlu.mzx.tiaoji.MyApplication;
 import com.jlu.mzx.tiaoji.R;
 import com.jlu.mzx.tiaoji.tools.Volunteer;
@@ -51,8 +52,13 @@ public class ZhiyuanFragment extends Fragment implements TextView.OnEditorAction
     private Spinner spinner;
     private ListView listview;
     private List<Volunteer> datas;
-    InformationAdapter inforadapter;
+    VolunteerInformationAdapter inforadapter;
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Log.e("onCreateView", "onCreateView");
@@ -62,12 +68,13 @@ public class ZhiyuanFragment extends Fragment implements TextView.OnEditorAction
         /**
          * 初始化view
          */
+
         datas = new ArrayList<>();
         spinner = (Spinner) view.findViewById(R.id.type);
         editText = (EditText) view.findViewById(R.id.searchEdit);
         listview = (ListView) view.findViewById(R.id.list);
 
-        inforadapter = new InformationAdapter(getContext(), datas);
+        inforadapter = new VolunteerInformationAdapter(getContext(), datas);
         listview.setAdapter(inforadapter);
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -85,6 +92,17 @@ public class ZhiyuanFragment extends Fragment implements TextView.OnEditorAction
         return view;
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.base_menu, menu);
+        menu.findItem(R.id.search).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                startActivity(new Intent(getActivity(), SearchVolunteer.class));
+                return true;
+            }
+        });
+    }
 
     @Override
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -132,7 +150,7 @@ public class ZhiyuanFragment extends Fragment implements TextView.OnEditorAction
                             tmp.setTeacher(item.get("teacher").toString());
                             tmp.setSubject(item.get("subject").toString());
                             tmp.setSpecialty(item.get("specialty").toString());
-                            Log.e("tmp",tmp.toString());
+                            Log.e("tmp", tmp.toString());
                             datas.add(tmp);
 
                         }
@@ -140,7 +158,7 @@ public class ZhiyuanFragment extends Fragment implements TextView.OnEditorAction
                         e.printStackTrace();
                     }
 
-                    Log.e("datas",datas.toString());
+                    Log.e("datas", datas.toString());
                     inforadapter.notifyDataSetChanged();
 
                 }

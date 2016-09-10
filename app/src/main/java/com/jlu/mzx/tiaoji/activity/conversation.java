@@ -1,4 +1,4 @@
-package com.jlu.mzx.tiaoji.Aty;
+package com.jlu.mzx.tiaoji.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

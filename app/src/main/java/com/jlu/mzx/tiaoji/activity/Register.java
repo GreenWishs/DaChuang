@@ -1,4 +1,4 @@
-package com.jlu.mzx.tiaoji.Aty;
+package com.jlu.mzx.tiaoji.activity;
 
 import android.content.Intent;
 import android.os.Bundle;

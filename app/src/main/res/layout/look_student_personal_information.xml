@@ -1,127 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:padding="5dp">
-<TableLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <TableRow>
-        <TextView
-            android:layout_weight="1"
-            android:text="姓名"
-            android:textColor="#000000"
-            android:textSize="20dp"/>
-        <TextView
-            android:layout_weight="3"
-            android:text=""
-            android:textColor="#000000"
-            android:textSize="20dp"/>
-    </TableRow>
-    <TableRow>
-        <TextView
-            android:layout_weight="1"
-            android:text="性别"
-            android:textColor="#000000"
-            android:textSize="20dp"/>
-        <TextView
-            android:layout_weight="3"
-            android:text=""
-            android:textColor="#000000"
-            android:textSize="20dp"/>
-    </TableRow>
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp">
 
-    <TableRow>
-        <TextView
-            android:layout_weight="1"
-            android:text="年龄"
-            android:textColor="#000000"
-            android:textSize="20dp"/>
-        <TextView
-            android:layout_weight="3"
-            android:text=""
-            android:textColor="#000000"
-            android:textSize="20dp"/>
-    </TableRow>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TableRow>
-        <TextView
-            android:layout_weight="1"
-            android:text=""
-            android:textColor="#000000"
-            android:textSize="20dp"/>
-        <TextView
-            android:layout_weight="3"
-            android:text=""
-            android:textColor="#000000"
-            android:textSize="20dp"/>
-    </TableRow>
+        <TableRow android:padding="5dp">
 
-    <TableRow>
-        <TextView
-            android:layout_weight="1"
-            android:text=""
-            android:textColor="#000000"
-            android:textSize="20dp"/>
-        <TextView
-            android:layout_weight="3"
-            android:text=""
-            android:textColor="#000000"
-            android:textSize="20dp"/>
-    </TableRow>
+            <TextView
+                android:layout_weight="1"
+                android:text="@string/xingming"
+                android:textColor="#181818"
+                android:textSize="20sp" />
 
-    <TableRow>
-        <TextView
-            android:layout_weight="1"
-            android:text=""
-            android:textColor="#000000"
-            android:textSize="20dp"/>
-        <TextView
-            android:layout_weight="3"
-            android:text=""
-            android:textColor="#000000"
-            android:textSize="20dp"/>
-    </TableRow>
+            <TextView
+                android:id="@+id/name"
+                android:layout_weight="3"
+                android:textColor="#181818"
+                android:textSize="20sp" />
+        </TableRow>
 
-    <TableRow>
-        <TextView
-            android:layout_weight="1"
-            android:text=""
-            android:textColor="#000000"
-            android:textSize="20dp"/>
-        <TextView
-            android:layout_weight="3"
-            android:text=""
-            android:textColor="#000000"
-            android:textSize="20dp"/>
-    </TableRow>
+        <TableRow android:padding="5dp">
 
-    <TableRow>
-        <TextView
-            android:layout_weight="1"
-            android:text=""
-            android:textColor="#000000"
-            android:textSize="20dp"/>
-        <TextView
-            android:layout_weight="3"
-            android:text=""
-            android:textColor="#000000"
-            android:textSize="20dp"/>
-    </TableRow>
+            <TextView
+                android:layout_weight="1"
+                android:text="@string/sex"
+                android:textColor="#181818"
+                android:textSize="20sp" />
 
-    <TableRow>
-        <TextView
-            android:layout_weight="1"
-            android:text=""
-            android:textColor="#000000"
-            android:textSize="20dp"/>
-        <TextView
-            android:layout_weight="3"
-            android:text=""
-            android:textColor="#000000"
-            android:textSize="20dp"/>
-    </TableRow>
+            <TextView
+                android:id="@+id/sex"
+                android:layout_weight="3"
+                android:textColor="#181818"
+                android:textSize="20sp" />
+        </TableRow>
 
+        <TableRow android:padding="5dp">
 
-</TableLayout>
+            <TextView
+                android:layout_weight="1"
+                android:text="@string/age"
+                android:textColor="#181818"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/age"
+                android:layout_weight="3"
+                android:textColor="#181818"
+                android:textSize="20sp" />
+        </TableRow>
+
+        <TableRow android:padding="5dp">
+
+            <TextView
+                android:layout_weight="1"
+                android:text="@string/school"
+                android:textColor="#181818"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/school"
+                android:layout_weight="3"
+                android:textColor="#181818"
+                android:textSize="20sp" />
+        </TableRow>
+
+        <TableRow android:padding="5dp">
+
+            <TextView
+                android:layout_weight="1"
+                android:text="@string/nation"
+                android:textColor="#181818"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/nation"
+                android:layout_weight="3"
+                android:textColor="#181818"
+                android:textSize="20sp" />
+        </TableRow>
+
+        <TableRow android:padding="5dp">
+
+            <TextView
+                android:layout_weight="1"
+                android:text="@string/specialty"
+                android:textColor="#181818"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/specialty"
+                android:layout_weight="3"
+                android:textColor="#181818"
+                android:textSize="20sp" />
+        </TableRow>
+
+        <TableRow android:padding="5dp">
+
+            <TextView
+                android:layout_weight="1"
+                android:text="@string/phonenumber"
+                android:textColor="#181818"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/phone"
+                android:layout_weight="3"
+                android:textColor="#181818"
+                android:textSize="20sp" />
+        </TableRow>
+
+        <TableRow android:padding="5dp">
+
+            <TextView
+                android:layout_weight="1"
+                android:text="@string/idcardnumber"
+                android:textColor="#181818"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/idcard"
+                android:layout_weight="3"
+                android:textColor="#181818"
+                android:textSize="20sp" />
+        </TableRow>
+
+        <TableRow android:padding="5dp">
+
+            <TextView
+                android:layout_weight="1"
+                android:text="@string/personalintroduction"
+                android:textColor="#181818"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/introduct"
+                android:layout_weight="3"
+                android:textColor="#181818"
+                android:textSize="20sp" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:stretchColumns="0,1">
+        <TableRow>
+            <Button
+                android:id="@+id/change"
+                android:background="#f9f9f9"
+                android:text="@string/modify"
+                android:textSize="20sp" />
+            <Button
+                android:id="@+id/back"
+                android:background="#f9f9f9"
+                android:text="返回"
+                android:textSize="20sp" />
+        </TableRow>
+    </TableLayout>
 </LinearLayout>

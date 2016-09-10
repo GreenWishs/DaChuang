@@ -4,33 +4,27 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.jlu.mzx.tiaoji.Aty.LoginActivity;
-import com.jlu.mzx.tiaoji.Aty.SetStudentPersonalInformation;
-import com.jlu.mzx.tiaoji.Aty.StatusofMyapply;
+import com.jlu.mzx.tiaoji.activity.LoginActivity;
+import com.jlu.mzx.tiaoji.activity.LookStudentPersonalInformation;
+import com.jlu.mzx.tiaoji.activity.StatusofMyapply;
 import com.jlu.mzx.tiaoji.R;
-
 
 /**
  * Created by mzx on 2016/7/15.
  */
 public class me_student_fragment extends Fragment {
-    private Button outlogin;
-    private View view;
-    private Intent intent;
     TextView textView1;//查看学生所发出申请的状态
     TextView textView2;//学生设置个人信息
-
+    private Button outlogin;
+    private View view;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.e("onCreateView", "onCreateView");
@@ -45,7 +39,7 @@ public class me_student_fragment extends Fragment {
             textView1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    intent = new Intent(getContext(), StatusofMyapply.class);
+                    Intent intent = new Intent(getContext(), StatusofMyapply.class);
                     startActivity(intent);
                 }
             });
@@ -56,7 +50,7 @@ public class me_student_fragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     Log.e("eeeee", "跳转前");
-                    intent = new Intent(getContext(), SetStudentPersonalInformation.class);
+                    Intent intent = new Intent(getActivity(), LookStudentPersonalInformation.class);
                     startActivity(intent);
                     Log.e("eeeeee", "跳转后");
                 }
@@ -72,12 +66,10 @@ public class me_student_fragment extends Fragment {
                     SharedPreferences sp = getActivity().getSharedPreferences("app", Context.MODE_APPEND);
                     SharedPreferences.Editor editor = sp.edit();
                     editor.putBoolean("isdenglu", false);
-                    editor.commit();
-
+                    editor.apply();
                     Intent intent = new Intent(getContext(), LoginActivity.class);
                     startActivity(intent);
                     getActivity().finish();
-
                 }
             });
 

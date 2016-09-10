@@ -1,22 +1,18 @@
 package com.jlu.mzx.tiaoji;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.jlu.mzx.tiaoji.Adapter.MyFragmentAdapter;
-import com.jlu.mzx.tiaoji.Aty.SearchVolunteer;
+import com.jlu.mzx.tiaoji.Frag.ZhiyuanFragment;
 import com.jlu.mzx.tiaoji.Frag.me_student_fragment;
 import com.jlu.mzx.tiaoji.Frag.me_teacher_fragment;
-import com.jlu.mzx.tiaoji.Frag.ZhiyuanFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,21 +33,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         initview();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.base_menu, menu);
-        menu.findItem(R.id.search).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem menuItem) {
-                startActivity(new Intent(MainActivity.this, SearchVolunteer.class));
-                return true;
-            }
-        });
-        return true;
     }
 
     /**
@@ -72,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
          */
         //TODO me_teacher_fragment 实现
         SharedPreferences sp = getSharedPreferences("app", MODE_PRIVATE);
-        String usersidentity = sp.getString("identity", "student");
-        if (usersidentity.equals("student")) {
+        int usersidentity = sp.getInt("identity", 1);
+        if (usersidentity == 1) {
             meFragment = new me_student_fragment();
         } else {
             meFragment = new me_teacher_fragment();
@@ -140,8 +122,6 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * 初始化聊天界面fragment
-     *
-     * @return
      */
     private Fragment initConverstationlist() {
         if (mConverstationlist == null) {

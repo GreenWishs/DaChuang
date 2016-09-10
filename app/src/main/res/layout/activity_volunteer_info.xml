@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:theme="@android:style/Theme.NoTitleBar"
-    tools:context="com.jlu.mzx.tiaoji.Aty.VolunteerInfo">
+    tools:context="com.jlu.mzx.tiaoji.activity.VolunteerInfo">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,10 +14,11 @@
         android:orientation="vertical">
 
         <ImageView
+            android:contentDescription="@string/schoolbadge"
             android:id="@+id/schoolbadge"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:layout_marginLeft="130dp"
+            android:layout_marginStart="130dp"
             android:layout_marginTop="10dp" />
 
         <TextView
@@ -25,19 +26,23 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/schoolbadge"
             android:layout_centerHorizontal="true"
-            android:text="计算机科学与技术"
+            android:text="@string/specialtyname"
             android:textColor="@color/white"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
     </RelativeLayout>
 
     <ListView
         android:id="@+id/info_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#F2F2F2"
-        >
+        android:layout_height="wrap_content"
+        android:background="#F2F2F2">
 
     </ListView>
 
+    <Button
+        android:id="@+id/startconversation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="点击与老师对话" />
 </LinearLayout>

@@ -1,4 +1,4 @@
-package com.jlu.mzx.tiaoji.Aty;
+package com.jlu.mzx.tiaoji.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.jlu.mzx.tiaoji.AppConfig;
 import com.jlu.mzx.tiaoji.MainActivity;
 import com.jlu.mzx.tiaoji.R;
 
