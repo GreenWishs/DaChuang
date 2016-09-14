@@ -38,7 +38,7 @@ public class VolunteerInfo extends Activity {
             public void onClick(View view) {
                 //TODO 这个地方开启回话有问题，应查询到老师的id之后进行对话
                 if (RongIM.getInstance() != null)
-                    RongIM.getInstance().startPrivateChat(VolunteerInfo.this, "123", "title");
+                    RongIM.getInstance().startPrivateChat(VolunteerInfo.this, volunteer.getReleaseuser(), "title");
             }
         });
     }

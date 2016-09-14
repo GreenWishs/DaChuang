@@ -96,6 +96,7 @@ public class SearchvolunteerFragment extends Fragment {
                         tmp.setTeacher(item.get("teacher").toString());
                         tmp.setSubject(item.get("subject").toString());
                         tmp.setSpecialty(item.get("specialty").toString());
+                        tmp.setReleaseuser(item.get("releaseuser").toString());
                         Log.e("json", tmp.getAmount() + tmp.getId());
                         Log.e("tmp", datas.toString());
 

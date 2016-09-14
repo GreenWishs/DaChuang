@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.WindowManager;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -40,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
      * 初始化view
      */
     private void initview() {
+
+       // getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         radiogroup = (RadioGroup) findViewById(R.id.radiogroup);
         xiaoxi = (RadioButton) findViewById(R.id.xiaoxi);
         zhiyuan = (RadioButton) findViewById(R.id.zhiyuan);

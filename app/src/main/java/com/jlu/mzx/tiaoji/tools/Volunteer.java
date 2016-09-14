@@ -16,6 +16,14 @@ public class Volunteer implements Serializable {
         this.id = id;
     }
 
+    public String getReleaseuser() {
+        return releaseuser;
+    }
+
+    public void setReleaseuser(String releaseuser) {
+        this.releaseuser = releaseuser;
+    }
+
     private String teacher;
     private String school;
     private String area;
@@ -24,6 +32,7 @@ public class Volunteer implements Serializable {
     private String amount;
     private String specialty;
     private String remark;
+    private String releaseuser;
     private int requeststatus;
 
     public int getRequeststatus() {
