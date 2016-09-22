@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jlu.mzx.tiaoji.activity.CreatMyVolunteer">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="80dp">
+    <TableLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TableRow
+        android:padding="5dp">
+        <TextView
+            android:layout_weight="1"
+            android:text="志愿名"
+            android:textColor="#000000"
+            android:textSize="20dp"/>
+        <EditText
+            android:id="@+id/name"
+            android:layout_weight="20" />
+    </TableRow>
+
+    <TableRow
+        android:padding="5dp">
+        <TextView
+            android:layout_weight="1"
+            android:text="学  校"
+            android:textColor="#000000"
+            android:textSize="20dp"/>
+        <EditText
+            android:id="@+id/school"
+            android:layout_weight="20" />
+    </TableRow>
+    <TableRow
+        android:padding="5dp">
+        <TextView
+            android:layout_weight="1"
+            android:text="导  师"
+            android:textColor="#000000"
+            android:textSize="20dp"/>
+        <EditText
+            android:id="@+id/teacher"
+            android:layout_weight="20" />
+    </TableRow>
+    <TableRow
+        android:padding="5dp">
+        <TextView
+            android:layout_weight="1"
+            android:text="学  院"
+            android:textColor="#000000"
+            android:textSize="20dp"/>
+        <EditText
+            android:id="@+id/college"
+            android:layout_weight="20" />
+    </TableRow>
+    <TableRow
+        android:padding="5dp">
+        <TextView
+            android:layout_weight="1"
+            android:text="学  科"
+            android:textColor="#000000"
+            android:textSize="20dp"/>
+        <EditText
+            android:id="@+id/subject"
+            android:layout_weight="20" />
+    </TableRow>
+    <TableRow
+        android:padding="5dp">
+        <TextView
+            android:layout_weight="1"
+            android:text="地  区"
+            android:textColor="#000000"
+            android:textSize="20dp"/>
+        <EditText
+            android:id="@+id/area"
+            android:layout_weight="20" />
+    </TableRow>
+    <TableRow
+        android:padding="5dp">
+        <TextView
+            android:layout_weight="1"
+            android:text="数  量"
+            android:textColor="#000000"
+            android:textSize="20dp"/>
+        <EditText
+            android:id="@+id/amount"
+            android:layout_weight="20" />
+    </TableRow>
+    <TableRow
+        android:padding="5dp">
+        <TextView
+            android:layout_weight="1"
+            android:text="专  业"
+            android:textColor="#000000"
+            android:textSize="20dp"/>
+        <EditText
+            android:id="@+id/specialty"
+            android:layout_weight="20" />
+    </TableRow>
+    <TableRow
+        android:padding="5dp">
+        <TextView
+            android:layout_weight="1"
+            android:text="备  注"
+            android:textColor="#000000"
+            android:textSize="20dp"/>
+        <EditText
+            android:id="@+id/remark"
+            android:layout_weight="20" />
+    </TableRow>
+    </TableLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="40dp">
+            <TextView
+                android:id="@+id/yes"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:background="@null"
+                android:gravity="center"
+                android:text="确认创建"
+                android:textColor="#0c3fe6"
+                android:textSize="20dp"/>
+            <TextView
+                android:id="@+id/no"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_alignBottom="@id/yes"
+                android:layout_marginLeft="40dp"
+                android:layout_toRightOf="@id/yes"
+                android:text="取消"
+                android:textSize="12dp"
+                android:textColor="#000000"/>
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

@@ -77,6 +77,7 @@
 
     <TextView
         style="@style/me_info"
+        android:id="@+id/setting"
         android:layout_width="match_parent"
         android:layout_below="@id/newvolunteer"
         android:layout_marginTop="50dp"

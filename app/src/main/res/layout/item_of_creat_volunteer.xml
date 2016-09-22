@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/fouritem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <TextView
+        android:id="@+id/school"
+        android:layout_marginLeft="5dp"
+        android:hint="学校：未填写"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+    <TextView
+        android:id="@+id/college"
+        android:layout_marginLeft="5dp"
+        android:hint="学院：未填写"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+    <TextView
+        android:id="@+id/subject"
+        android:layout_marginLeft="5dp"
+        android:hint="学科：未填写"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+    <TextView
+        android:id="@+id/specialty"
+        android:layout_marginLeft="5dp"
+        android:hint="专业：未填写"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_marginLeft="5dp"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@mipmap/me_press"/>
+        <TextView
+            android:id="@+id/teacher"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:hint="姓名"/>
+        <TextView
+            android:id="@+id/amount"
+            android:gravity="center"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:hint="人数"/>
+        <TextView
+            android:id="@+id/area"
+            android:gravity="center"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:hint="地区"/>
+    </LinearLayout>
+</LinearLayout>

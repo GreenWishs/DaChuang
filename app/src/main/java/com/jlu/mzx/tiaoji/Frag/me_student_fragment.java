@@ -49,10 +49,8 @@ public class me_student_fragment extends Fragment {
             textView2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.e("eeeee", "跳转前");
                     Intent intent = new Intent(getActivity(), LookStudentPersonalInformation.class);
                     startActivity(intent);
-                    Log.e("eeeeee", "跳转后");
                 }
             });
 

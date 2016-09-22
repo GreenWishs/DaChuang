@@ -2,8 +2,8 @@ package com.jlu.mzx.tiaoji.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -22,17 +22,16 @@ import com.jlu.mzx.tiaoji.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class LookStudentPersonalInformation extends AppCompatActivity {
-
+public class LookTeacherPersonalInformation extends AppCompatActivity {
     private Button change,back;//修改按钮,返回按钮
     private Intent gochange,goback;
     private TextView name,sex,age,school,nation,specialty,phone,idcard,introduct,direction;
     private SharedPreferences sp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.look_student_personal_information);
-        change = (Button)findViewById(R.id.change);
+        setContentView(R.layout.look_teacher_personal_information);change = (Button)findViewById(R.id.change);
         back = (Button)findViewById(R.id.back);
         name = (TextView) findViewById(R.id.name);
         sex = (TextView)findViewById(R.id.sex);
@@ -102,14 +101,14 @@ public class LookStudentPersonalInformation extends AppCompatActivity {
         change.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                gochange = new Intent(LookStudentPersonalInformation.this,SetStudentPersonalInformation.class);
+                gochange = new Intent(LookTeacherPersonalInformation.this,SetStudentPersonalInformation.class);
                 startActivity(gochange);
             }
         });
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goback = new Intent(LookStudentPersonalInformation.this, MainActivity.class);
+                goback = new Intent(LookTeacherPersonalInformation.this, MainActivity.class);
                 goback.putExtra("id","2");
                 finish();
             }

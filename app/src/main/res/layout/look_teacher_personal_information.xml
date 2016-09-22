@@ -147,7 +147,7 @@
 
             <TextView
                 android:layout_weight="1"
-                android:text="@string/direction_student"
+                android:text="@string/direction_teacher"
                 android:textColor="#181818"
                 android:textSize="20sp" />
 
@@ -175,8 +175,8 @@
             <Button
                 android:id="@+id/back"
                 android:background="#f9f9f9"
-                android:textColor="#4859b7"
                 android:text="返回"
+                android:textColor="#4859b7"
                 android:textSize="20sp" />
         </TableRow>
     </TableLayout>

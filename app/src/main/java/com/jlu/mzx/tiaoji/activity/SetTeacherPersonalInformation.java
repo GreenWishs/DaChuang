@@ -2,8 +2,8 @@ package com.jlu.mzx.tiaoji.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -21,10 +21,7 @@ import com.jlu.mzx.tiaoji.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- * Created by caosong on 2016/9/3.
- */
-public class SetStudentPersonalInformation extends AppCompatActivity {
+public class SetTeacherPersonalInformation extends AppCompatActivity {
     String username;
     EditText name,sex,age,school,nation,specialty,phone,idcard,introduct,direction;//学生具体信息
     SharedPreferences sp;
@@ -33,9 +30,10 @@ public class SetStudentPersonalInformation extends AppCompatActivity {
     private Intent intent;
     private TextView no;//取消
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.set_student_personal_information);
+        setContentView(R.layout.set_teacher_personal_information);
         sp = getSharedPreferences("app", MODE_PRIVATE);
         data = new JSONObject();
         data1 = new JSONObject();
@@ -115,7 +113,17 @@ public class SetStudentPersonalInformation extends AppCompatActivity {
                     data.put("specialty", specialty.getText().toString());
                     data.put("introduct", introduct.getText().toString());
                     data.put("phone", phone.getText().toString());
-
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString("realname", name.getText().toString());
+                    editor.putString("sex", sex.getText().toString());
+                    editor.putString("age", age.getText().toString());
+                    editor.putString("idcard", idcard.getText().toString());
+                    editor.putString("nation", nation.getText().toString());
+                    editor.putString("school", school.getText().toString());
+                    editor.putString("specialty", specialty.getText().toString());
+                    editor.putString("introduct", introduct.getText().toString());
+                    editor.putString("phone", phone.getText().toString());
+                    editor.apply();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -123,17 +131,6 @@ public class SetStudentPersonalInformation extends AppCompatActivity {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        SharedPreferences.Editor editor = sp.edit();
-                        editor.putString("realname", name.getText().toString());
-                        editor.putString("sex", sex.getText().toString());
-                        editor.putString("age", age.getText().toString());
-                        editor.putString("idcard", idcard.getText().toString());
-                        editor.putString("nation", nation.getText().toString());
-                        editor.putString("school", school.getText().toString());
-                        editor.putString("specialty", specialty.getText().toString());
-                        editor.putString("introduct", introduct.getText().toString());
-                        editor.putString("phone", phone.getText().toString());
-                        editor.apply();
                         Toast.makeText(getBaseContext(), "修改成功", Toast.LENGTH_SHORT).show();
 
                     }
@@ -158,3 +155,4 @@ public class SetStudentPersonalInformation extends AppCompatActivity {
 
     }
 }
+

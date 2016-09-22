@@ -14,7 +14,7 @@ import java.util.List;
 
 
 public class VolunteerInformationAdapter extends BaseAdapter {
-    private final LayoutInflater mInflater;// 动态布局映射
+    private  LayoutInflater mInflater;// 动态布局映射
     private  List<Volunteer> datas;
 
     public VolunteerInformationAdapter(Context context, List<Volunteer> datas) {
